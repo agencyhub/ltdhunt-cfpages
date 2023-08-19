@@ -1,0 +1,19 @@
+{
+  "name": "ltdhunt",
+  "author": "Dan Lourenco",
+  "license": "MIT",
+  "scripts": {
+    "dev": "run-p dev:*",
+    "dev:wrangler": "wrangler pages dev dist --live-reload --port 8787",
+    "dev:esbuild": "esbuild --bundle src/server.js --format=esm --watch --outfile=dist/_worker.js",
+    "build": "esbuild --bundle src/server.js --format=esm --outfile=dist/_worker.js",
+    "deploy": "wrangler pages publish dist"
+  },
+  "dependencies": {
+    "hono": "^3.4.1",
+    "inngest": "^2.5.0"
+  },
+  "devDependencies": {
+    "wrangler": "^3.1.2"
+  }
+}
